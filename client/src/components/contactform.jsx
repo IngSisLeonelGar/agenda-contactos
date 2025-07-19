@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './contactform.css';
 
 export default function ContactForm({ onSave, contactToEdit, onCancel }) {
   const [contact, setContact] = useState({
@@ -54,8 +55,8 @@ export default function ContactForm({ onSave, contactToEdit, onCancel }) {
         value={contact.email}
         onChange={handleChange}
       />
-      <button type="submit">Guardar</button>
-      {onCancel && <button onClick={onCancel}>Cancelar</button>}
+      <button className='guardar' type="submit">Guardar</button>
+      {onCancel && <button className='cancelar' onClick={onCancel}>Cancelar</button>}
     </form>
   );
 }

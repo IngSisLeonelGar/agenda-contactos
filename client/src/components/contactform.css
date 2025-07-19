@@ -1,0 +1,28 @@
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Botones */
+.guardar,
+.cancelar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  margin-right: 8px; /* separación entre botones */
+  margin-bottom: 8px;
+}
+
+.guardar {
+  background-color: #27ae60;
+}
+
+.cancelar {
+  background-color: #e74c3c;
+}

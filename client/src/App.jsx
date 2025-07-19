@@ -28,13 +28,20 @@ export default function App() {
   }
 
   const handleSave = async contact => {
-    try {
+  try {
+      // Si estamos agregando (no editando) y ya hay 5 contactos, no dejar continuar
+      if (!editingContact && contacts.length >= 5) {
+        alert('Solo puedes tener un máximo de 5 contactos.');
+        return;
+      }
+
       if (editingContact) {
         await updateContact(editingContact.id, contact);
         setEditingContact(null);
       } else {
         await addContact(contact);
       }
+
       loadContacts();
     } catch (error) {
       alert(error.message);
@@ -57,7 +64,7 @@ export default function App() {
   );
 
   return (
-    <div>
+    <div className='app-container'>
       <h1>Agenda de Contactos</h1>
       <Filter filterText={filterText} onFilterChange={setFilterText} />
       <ContactForm

@@ -1,0 +1,97 @@
+/* Tabla de registros */
+.tabla-contactos {
+  overflow-x: auto; /* permite scroll horizontal en móviles */
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  table-layout: fixed; /* fuerza las celdas a respetar el ancho */
+  border-collapse: collapse;
+}
+
+.tabla-contactos th,
+.tabla-contactos td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* permite saltos de línea */
+}
+
+.tabla-contactos th {
+  background-color: #3498db;
+  color: white;
+}
+
+.tabla-contactos td {
+  max-width: 200px; /* o el valor que consideres razonable */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabla-contactos tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabla-contactos tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Botones */
+.Editar,
+.Eliminar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  margin-right: 8px; /* separación entre botones */
+}
+
+.Editar {
+  background-color: #27ae60;
+}
+
+.Eliminar {
+  background-color: #e74c3c;
+}
+
+.botones-acciones {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* Evita desbordes en pantallas pequeñas */
+  justify-content: start;
+}
+
+.tabla-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%; /* importante para que no exceda el contenedor */
+}
+
+@media (max-width: 600px) {
+  .tabla-contactos {
+    display: block; /* solo para pantallas pequeñas */
+  }
+  
+  .botones-acciones {
+    flex-direction: column;
+  }
+
+  .Editar,
+  .Eliminar {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .formulario-contacto {
+    padding: 15px;
+  }
+}
