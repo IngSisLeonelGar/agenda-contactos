@@ -3,9 +3,10 @@ const pool = require('../models/db');
 // Obtener todos los contactos
 exports.getContacts = async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM contacts ORDER BY created_at DESC');
+    const result = await pool.query('SELECT * FROM contacts ORDER BY create_at DESC');
     res.json(result.rows);
   } catch (err) {
+    console.error('Error al obtener contactos:', err); // <---- Aquí el error en consola
     res.status(500).json({ error: err.message });
   }
 };
