@@ -4,7 +4,7 @@ import {
   addContact,
   updateContact,
   deleteContact,
-} from './api/contacts';
+} from './api';
 import ContactList from './components/contactlist';
 import ContactForm from './components/contactform';
 import Filter from './components/filter';
