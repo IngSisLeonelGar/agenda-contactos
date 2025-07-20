@@ -1,5 +1,6 @@
-// /api/contacts/add.js
-const pool = require('../_utils/db');
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -8,13 +9,13 @@ export default async function handler(req, res) {
 
   const { name, email, phone, company } = req.body;
 
-  try {
-    const result = await pool.query(
-      'INSERT INTO contacts (name, email, phone, company) VALUES ($1, $2, $3, $4) RETURNING *',
-      [name, email, phone, company]
-    );
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  const { data, error } = await supabase
+    .from('contacts')
+    .insert([{ name, email, phone, company }])
+    .select()
+    .single();
+
+  if (error) return res.status(500).json({ error: error.message });
+
+  return res.status(201).json(data);
 }
