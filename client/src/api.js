@@ -1,5 +1,4 @@
-// src/api.js
-const BASE_URL = 'http://localhost:5000/api/contacts';
+const BASE_URL = '/api/contacts';
 
 export async function fetchContacts() {
   const res = await fetch(BASE_URL);
