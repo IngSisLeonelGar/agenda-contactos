@@ -11,8 +11,7 @@ export default async function handler(req, res) {
   try {
     const { data, error } = await supabase
   .from('contacts')
-  .select('*')
-  .order('create_at', { ascending: false });
+  .select('*');
 
 console.log('Data obtenida:', data);
 console.log('Error:', error);
