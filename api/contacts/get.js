@@ -3,6 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 // Inicializa Supabase con las variables de entorno
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
+console.log(process.env.SUPABASE_URL)
+
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Método no permitido' });
